@@ -1,6 +1,8 @@
 const expect = require("chai").expect;
 const ComputerStorage = require("../ComputerStorage");
 const computers = require("../computers.json");
+// importing testValues
+const { testValues_for_get_All_computers_By_type } = require("../testValues");
 
 describe("Test 1: testing ComputerStorage constructor", function () {
   it("Test 1.1: constructor return nothing with default value", function () {
@@ -92,6 +94,26 @@ describe("Test 4: testing get_Price(computerNumber) method", function () {
       expect(pcRegister.get_Price(testCase.computerNumber)).to.equal(
         testCase.expected
       );
+    });
+  });
+});
+
+// testing get_All_computers_By_type(searchValue)
+
+describe("Test 5: testing get_All_computers_By_type(searchValue) method", function () {
+  const pcRegister = new ComputerStorage(computers);
+
+  it("Test 5.1: no searchvalue is passed, expected exception: 'missing parameter'", function () {
+    expect(function () {
+      pcRegister.get_All_computers_By_type();
+    }).to.throw("missing parameter");
+  });
+
+  testValues_for_get_All_computers_By_type.forEach(function (testCase) {
+    it(`Test ${testCase.test}: searchValue: ${testCase.searchValue}, expected: ${testCase.expected}`, function () {
+      expect(
+        pcRegister.get_All_computers_By_type(testCase.searchValue)
+      ).to.deep.equal(testCase.expected);
     });
   });
 });

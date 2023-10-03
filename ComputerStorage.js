@@ -37,4 +37,9 @@ module.exports = class {
     if (found.length === 0) throw new Error("nothing found with given number");
     return found[0].price;
   }
+
+  get_All_computers_By_type(searchValue) {
+    if (!searchValue) throw new Error("missing parameter");
+    return this.#dataStorage.filter((pc) => pc.type === searchValue);
+  }
 };
