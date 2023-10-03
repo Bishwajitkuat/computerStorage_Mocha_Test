@@ -49,4 +49,13 @@ module.exports = class {
       else return acc;
     }, []);
   }
+
+  get_a_computer_matching_computerNumber(searchKey) {
+    if (!searchKey) throw new Error("missing parameter");
+    const filteredPc = this.#dataStorage.filter(
+      (pc) => pc.computerNumber === searchKey
+    );
+    if (filteredPc.length === 0) return null;
+    return filteredPc[0];
+  }
 };

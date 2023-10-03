@@ -71,7 +71,62 @@ const testValues_for_get_All_computers_By_color = [
   },
 ];
 
+const testValues_for_get_a_computer_matching_computerNumber = [
+  {
+    test: "7.2.1",
+    searchKey: "doesNotExist",
+    expected: null,
+  },
+  {
+    test: "7.2.2",
+    searchKey: 1,
+    expected: {
+      computerNumber: 1,
+      name: "Xunil 4.7",
+      type: "server",
+      price: 10,
+      manufacturer: "Xyz computing",
+      colors: ["yellow", "white", "green"],
+      extras: {
+        consumption: "C",
+        comments: "no comments",
+        model: "XXL",
+      },
+    },
+  },
+  {
+    test: "7.2.3",
+    searchKey: 2,
+    expected: {
+      computerNumber: 2,
+      name: "Xunil 4.7",
+      type: "gameover",
+      price: 200,
+      manufacturer: "Leila Hökki & co",
+      colors: ["red", "green", "blue"],
+      extras: {
+        consumption: "D",
+        comments: "-",
+        model: "silver",
+      },
+    },
+  },
+  {
+    test: "7.2.4",
+    searchKey: 5,
+    expected: {
+      computerNumber: 5,
+      name: "Cera 2400",
+      type: "tabletop",
+      price: 10,
+      manufacturer: "Ocean",
+      colors: ["black", "orange", "green"],
+    },
+  },
+];
+
 module.exports = {
   testValues_for_get_All_computers_By_type,
   testValues_for_get_All_computers_By_color,
+  testValues_for_get_a_computer_matching_computerNumber,
 };

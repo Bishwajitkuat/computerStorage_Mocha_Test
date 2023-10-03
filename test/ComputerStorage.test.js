@@ -5,7 +5,10 @@ const computers = require("../computers.json");
 const {
   testValues_for_get_All_computers_By_type,
   testValues_for_get_All_computers_By_color,
+  testValues_for_get_a_computer_matching_computerNumber,
 } = require("../testValues");
+// Global
+const pcRegister = new ComputerStorage(computers);
 
 describe("Test 1: testing ComputerStorage constructor", function () {
   it("Test 1.1: constructor return nothing with default value", function () {
@@ -136,6 +139,27 @@ describe("Test 6: testing get_All_computers_By_color(searchValue) method", funct
     it(`Test ${testCase.test}: searchValue: ${testCase.searchValue}, expected: [${testCase.expected}]`, function () {
       expect(
         pcRegister.get_All_computers_By_color(testCase.searchValue)
+      ).to.deep.equal(testCase.expected);
+    });
+  });
+});
+
+// testing get_a_computer_matching_computerNumber(searchKey) method
+
+describe("Test 7: testing get_a_computer_matching_computerNumber(searchKey) method", function () {
+  it("Test 7.1: no searchKey is passed, expected exception: 'missing parameter'", function () {
+    expect(function () {
+      pcRegister.get_a_computer_matching_computerNumber();
+    }).to.throw("missing parameter");
+  });
+
+  // Tesht 7.2.1 to 7.2.4
+  testValues_for_get_a_computer_matching_computerNumber.forEach(function (
+    testCase
+  ) {
+    it(`Test ${testCase.test}: searchKey: ${testCase.searchKey}, expected: ${testCase.expected}`, function () {
+      expect(
+        pcRegister.get_a_computer_matching_computerNumber(testCase.searchKey)
       ).to.deep.equal(testCase.expected);
     });
   });
