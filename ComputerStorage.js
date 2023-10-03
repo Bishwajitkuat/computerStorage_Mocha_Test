@@ -19,4 +19,14 @@ module.exports = class {
     }
     return false;
   }
+
+  get_total_price_of_computers_by_type(searchValue) {
+    if (!searchValue) throw new Error("missing parameter");
+    const total = this.#dataStorage.reduce((total, pc) => {
+      if (pc.type === searchValue) return total + pc.price;
+      else return total;
+    }, 0);
+    if (total !== 0) return total;
+    else throw new Error("nothing found with given type");
+  }
 };

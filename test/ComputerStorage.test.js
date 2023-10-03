@@ -32,3 +32,33 @@ describe("Test 2: testing has_extras(searchKey) method", function () {
     expect(pcRegister.has_extras()).to.deep.false;
   });
 });
+
+// testing get_total_price_of_computers_by_type(searchValue) method
+
+describe("Test 3: testing get_total_price_of_computers_by_type(searchValue) method", function () {
+  const pcRegister = new ComputerStorage(computers);
+
+  it("Test 3.1: no searchValue given, expected exception: 'missing parameter'", function () {
+    expect(function () {
+      pcRegister.get_total_price_of_computers_by_type();
+    }).to.throw("missing parameter");
+  });
+
+  it("Test 3.2: searchValue: game, expected exception: 'nothing found with given type'", function () {
+    expect(function () {
+      pcRegister.get_total_price_of_computers_by_type("game");
+    }).to.throw("nothing found with given type");
+  });
+
+  it("Test 3.3: searchValue: server, expected: 10", function () {
+    expect(pcRegister.get_total_price_of_computers_by_type("server")).to.equal(
+      10
+    );
+  });
+
+  it("Test 3.3: searchValue: gameover, expected: 236 ", function () {
+    expect(
+      pcRegister.get_total_price_of_computers_by_type("gameover")
+    ).to.equal(236);
+  });
+});
