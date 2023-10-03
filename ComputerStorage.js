@@ -29,4 +29,12 @@ module.exports = class {
     if (total !== 0) return total;
     else throw new Error("nothing found with given type");
   }
+
+  get_Price(computerNumber) {
+    const found = this.#dataStorage.filter(
+      (pc) => pc.computerNumber === computerNumber
+    );
+    if (found.length === 0) throw new Error("nothing found with given number");
+    return found[0].price;
+  }
 };

@@ -62,3 +62,36 @@ describe("Test 3: testing get_total_price_of_computers_by_type(searchValue) meth
     ).to.equal(236);
   });
 });
+
+// testing get_Price(computerNumber)
+
+describe("Test 4: testing get_Price(computerNumber) method", function () {
+  const pcRegister = new ComputerStorage(computers);
+
+  it("Test 4.1: no computerNumber is passed, expected exception: 'nothing found with given number'", function () {
+    expect(function () {
+      pcRegister.get_Price();
+    }).to.throw("nothing found with given number");
+  });
+
+  it("Test 4.2: computerNumber: 999 which does not exist, expected exception: 'nothing found with given number'", function () {
+    expect(function () {
+      pcRegister.get_Price(999);
+    }).to.throw("nothing found with given number");
+  });
+
+  const testValues = [
+    { test: "4.3.1", computerNumber: 1, expected: 10 },
+    { test: "4.3.2", computerNumber: 2, expected: 200 },
+    { test: "4.3.3", computerNumber: 3, expected: 36 },
+    { test: "4.3.4", computerNumber: 5, expected: 10 },
+  ];
+
+  testValues.forEach(function (testCase) {
+    it(`Test ${testCase.test}: computerNumber: ${testCase.computerNumber}, expected: ${testCase.expected}`, function () {
+      expect(pcRegister.get_Price(testCase.computerNumber)).to.equal(
+        testCase.expected
+      );
+    });
+  });
+});
