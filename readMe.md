@@ -1,12 +1,17 @@
-# Mocca Tester
-
-# **Mocca excercise** (computer)
+# Mocca Tester for ComputerRegister Class
 
 ## Goal: Create and test ComputerStorage class
 
-Create a class `ComputerStorage` for computer data. Data storage is passed to the constractor as a parameter. Data is in a json array. Use the following json array as default storage. You may need to modify the data or add more versions for testing.
+Create a class `ComputerStorage` for computer data. Data storage is passed to the constractor as a parameter. Data is in a json array. Use the following json array as default storage.
 
-### datastorage.json
+## Technologies
+
+- JavaScript
+- Nodejs
+- Mocha
+- Chai
+
+### computers.json
 
 ```json
 [
@@ -73,11 +78,11 @@ Create a class `ComputerStorage` for computer data. Data storage is passed to th
 ]
 ```
 
-# ComputerStorage API
+## Tests
 
-## Constructor
+### Test 1: Constructor Testing
 
-### **constructor(jsondata)**
+#### **constructor(jsondata)**
 
 Initializes ComputerStorage object
 
@@ -93,9 +98,7 @@ Initializes ComputerStorage object
 >
 > > If the parameter is missing, constructor throws an error `'data storage missing'`
 
-## Methods
-
-### **has_extras(searchKey)**
+### Test 2: **has_extras(searchKey)** Method test
 
 Method checks based on computerNumber if the computer has `extras` or not.
 
@@ -111,7 +114,7 @@ Method checks based on computerNumber if the computer has `extras` or not.
 >
 > >
 
-### **get_total_price_of_computers_by_type(searchValue)**
+### Test 3: **get_total_price_of_computers_by_type(searchValue)** Method Test
 
 returns the total price of all computers that have the same type than the given searchValue
 
@@ -127,7 +130,7 @@ returns the total price of all computers that have the same type than the given 
 >
 > > if no computer with the given searchValue is found throws an exeption `'nothing found with given type'`. If a parameter searchValue is missing, an exeption `'missing parameter'` is thrown
 
-### **get_Price(computerNumber)**
+### Test 4: **get_Price(computerNumber)** Method Test
 
 get the price of the computer
 
@@ -143,7 +146,7 @@ get the price of the computer
 >
 > > if no computer with the given computerNumber is found throws an exeption `'nothing found with given number'`
 
-### **get_All_computers_By_type(searchValue)**
+### Test 5: **get_All_computers_By_type(searchValue)** Method Test
 
 searches computers with given type
 
@@ -159,7 +162,7 @@ searches computers with given type
 >
 > > If a parameter searchValue is missing, an exeption `'missing parameter'` is thrown
 
-### **get_All_computers_By_color(searchValue)**
+### Test 6: **get_All_computers_By_color(searchValue)** Method Test
 
 searches computers with given color
 
@@ -175,7 +178,7 @@ searches computers with given color
 >
 > >
 
-### **get_a_computer_matching_computerNumber(searchKey)**
+### Test 7: **get_a_computer_matching_computerNumber(searchKey)** Method Test
 
 Method searches the datastorage for an object with given searchKey. Key is unique.
 
@@ -191,7 +194,7 @@ Method searches the datastorage for an object with given searchKey. Key is uniqu
 >
 > > if parameter searchKey is missing, throws an exception `'missing parameter'`
 
-### **get_All_computers_By_manufacturer(searchValue)**
+### Test 8: **get_All_computers_By_manufacturer(searchValue)** Method Test
 
 searches computers with given manufacturer
 
