@@ -14,3 +14,21 @@ describe("Test 1: testing ComputerStorage constructor", function () {
     }).to.throw("data storage missing");
   });
 });
+
+// testing has_extras(searchKey) method
+
+describe("Test 2: testing has_extras(searchKey) method", function () {
+  const pcRegister = new ComputerStorage(computers);
+
+  it("Test 2.1: searchKey: 1, expected: true", function () {
+    expect(pcRegister.has_extras(1)).to.deep.true;
+  });
+
+  it("Test 2.2: searchKey: 5, expected: false", function () {
+    expect(pcRegister.has_extras(5)).to.deep.false;
+  });
+
+  it("Test 2.3: searchKey:, expected: false", function () {
+    expect(pcRegister.has_extras()).to.deep.false;
+  });
+});
