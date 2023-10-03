@@ -6,6 +6,7 @@ const {
   testValues_for_get_All_computers_By_type,
   testValues_for_get_All_computers_By_color,
   testValues_for_get_a_computer_matching_computerNumber,
+  testValues_for_get_All_computers_By_manufacturer,
 } = require("../testValues");
 // Global
 const pcRegister = new ComputerStorage(computers);
@@ -160,6 +161,25 @@ describe("Test 7: testing get_a_computer_matching_computerNumber(searchKey) meth
     it(`Test ${testCase.test}: searchKey: ${testCase.searchKey}, expected: ${testCase.expected}`, function () {
       expect(
         pcRegister.get_a_computer_matching_computerNumber(testCase.searchKey)
+      ).to.deep.equal(testCase.expected);
+    });
+  });
+});
+
+// testing get_All_computers_By_manufacturer(searchValue) method
+
+describe("Test 8: testing get_All_computers_By_manufacturer(searchValue) method", function () {
+  it("Test 8.1: no searchValue is passed, expected exception: 'missing parameter'", function () {
+    expect(function () {
+      pcRegister.get_All_computers_By_manufacturer();
+    }).to.throw("missing parameter");
+  });
+
+  // test 8.2.1 to 8.2.3
+  testValues_for_get_All_computers_By_manufacturer.forEach(function (testCase) {
+    it(`Test ${testCase.test}: searchValue: ${testCase.searchValue}, expected: [${testCase.expected}]`, function () {
+      expect(
+        pcRegister.get_All_computers_By_manufacturer(testCase.searchValue)
       ).to.deep.equal(testCase.expected);
     });
   });

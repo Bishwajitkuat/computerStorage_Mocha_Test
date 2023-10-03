@@ -58,4 +58,12 @@ module.exports = class {
     if (filteredPc.length === 0) return null;
     return filteredPc[0];
   }
+
+  get_All_computers_By_manufacturer(searchValue) {
+    if (!searchValue) throw new Error("missing parameter");
+    return this.#dataStorage.reduce((acc, pc) => {
+      if (pc.manufacturer === searchValue) return [...acc, pc];
+      else return acc;
+    }, []);
+  }
 };
