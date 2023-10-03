@@ -42,4 +42,11 @@ module.exports = class {
     if (!searchValue) throw new Error("missing parameter");
     return this.#dataStorage.filter((pc) => pc.type === searchValue);
   }
+
+  get_All_computers_By_color(searchValue) {
+    return this.#dataStorage.reduce((acc, pc) => {
+      if (pc.colors.includes(searchValue)) return [...acc, pc.computerNumber];
+      else return acc;
+    }, []);
+  }
 };

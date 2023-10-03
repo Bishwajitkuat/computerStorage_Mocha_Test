@@ -206,24 +206,3 @@ searches computers with given manufacturer
 > Throws:
 >
 > > If a parameter searchValue is missing, an exeption `'missing parameter'` is thrown
-
-# The project
-
-## Create a folder for the testproject
-
-- the name of the folder should be `Mocca_Tester_computer`
-- create **package.json**
-  - **`npm init -y`**
-- install **mocha** as development dependency
-  - **`npm install mocha chai --save-dev`**
-- create folder `test` for tests
-- edit the test script in the **package.json**
-- use **datastorage.json** as a data source
-
-## Design test cases in separate .md -file
-
-## Implement all tests and test them to fail
-
-## Implement corresponding methods
-
-## Test the project until all tests pass

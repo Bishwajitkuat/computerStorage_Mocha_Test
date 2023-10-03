@@ -53,4 +53,25 @@ const testValues_for_get_All_computers_By_type = [
   },
 ];
 
-module.exports = { testValues_for_get_All_computers_By_type };
+const testValues_for_get_All_computers_By_color = [
+  {
+    test: "6.2",
+    searchValue: "doesNotExist",
+    expected: [],
+  },
+  {
+    test: "6.3.1",
+    searchValue: "black",
+    expected: [3, 4, 5],
+  },
+  {
+    test: "6.3.2",
+    searchValue: "yellow",
+    expected: [1],
+  },
+];
+
+module.exports = {
+  testValues_for_get_All_computers_By_type,
+  testValues_for_get_All_computers_By_color,
+};
